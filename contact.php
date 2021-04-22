@@ -1,103 +1,9 @@
 <?php
 $title= "Contact";
+//header file
  require_once('template/header.php');  
- 
- //filters inputs
- 
- //filter string
- function filterString($input){
-	 $input=filter_var(trim($input),FILTER_SANITIZE_STRING);
-	 if(empty($input))
-	 {
-		return false; 
-	 }else{
-		return $input; 
-	 }
-	 
- }
- 
- //filter email
- function filterEmail($input){
-	 $input=filter_var(trim($input),FILTER_SANITIZE_EMAIL);
-	 
-	 if(filter_var($input,FILTER_VALIDATE_EMAIL)){
-		 return $input;
-	 }else{
-		 return false;
-	 }
-	 
-	
- }
- 
- 
- //errors message var
- $usernameError=$emailError=$imageError=$messageError='';
- 
- //show old value when the user have error
- $username=$email=$message='';
- 
- 
- 
- 
- 
- 
- 
- 
- if($_SERVER['REQUEST_METHOD'] == 'POST'){
-	 
-	 //validate inputs
-	 
-	 //validate string
-	  $username=filterString($_POST['username']);
-	  if(!$username){
-		  $usernameError="username is required!";
-	  }
-	  
-	  //validate email
-	  $email=filterEmail($_POST['email']);
-	  if(!$email){
-		  $emailError="email is invalid!";
-	  }
-	  
-	  $message=filterString($_POST['message']);
-	  if(!$message){
-		  $messageError="message is required!";
-	  }
-	  
-	 
-	 
-	 
-	 //VALID THE UPLOAD IMAGE
-	 if(isset($_FILES['image']) && $_FILES['image']['error'] == 0){
-		 
-		//images types
-		$allowed=[
-		'jpg'=>'image/jpeg',
-		'png'=>'image/png',
-		'gif'=>'image/gif',
-		];
-		
-		//images size
-		$maxImageSize= 500000;
-		$imageSize=$_FILES['image']['size'];
-		
-		$fileType=mime_content_type($_FILES['image']['tmp_name']);
-		
-		//check the image type
-		if(!in_array($fileType,$allowed)){
-			$imageError="image type not allowed!";
-		}
-		//check the image size
-		if($imageSize > $maxImageSize){
-			$imageError="image size is not allowed!";
-			
-		}
-		
-	 }
-	 
- }
- 
- 
+ //uploder file
+  require_once('includes/uploader.php');  
  
  ?>
  
@@ -109,6 +15,7 @@ $title= "Contact";
  
   <!--img -->
  <div class="contact-img">
+ <p class="lead">Start Writing In <br> Your Mind ! </p>
  <img  src="img/tools-bg.webp">
  </div>
  
