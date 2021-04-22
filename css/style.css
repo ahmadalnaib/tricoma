@@ -73,7 +73,7 @@
 		 display:block;
 		 width:100%;
 		 padding:1.2rem;
-		 margin-bottom:1rem;
+		 margin-bottom:10px;
          border-radius: 5px;
 	 }
 	 
@@ -100,6 +100,14 @@
 		  background: #FBBF24;
 		  margin-top: 2rem;
 		   cursor:pointer;
+	   }
+	   
+	   .text-err{
+		   color:red;
+		   font-size:1.2rem;
+		   display:block;
+		   font-style:bold;
+		   margin-bottom:1rem;
 	   }
 	   
 	  /* contact-img*/

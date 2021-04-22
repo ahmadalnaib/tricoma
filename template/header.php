@@ -12,6 +12,7 @@
   <title><?php echo $config['App_Name'] .  " | "  . $title ?> </title>
 </head>
 <body>
+
 <!-- start container-->
 <div class="container">
   
