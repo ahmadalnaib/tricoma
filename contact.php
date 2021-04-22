@@ -1,4 +1,4 @@
 <?php require_once('template/header.php')  ?>
-Home
+Contact
 <?php require_once('template/footer.php') ?>
 
