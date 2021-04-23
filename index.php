@@ -22,7 +22,7 @@ $title= "Home";
  <div class="content-showcase">
  <h1>Start Writing <br> Your <br> Next Great Story </h1>
  <p>Create better designs, user <br> experiences, and showcase your <br> application in style with — Tails.  </p>
- <a href="contact.php" class="btn-showcase">Write Now</a>
+ <a href="<?php echo $config['App_Url'] ?>contact.php" class="btn-showcase">Write Now</a>
  </div>
  
   <div class="img-showcase">
@@ -57,7 +57,7 @@ $title= "Home";
 
 <div class="content">
 <p><?php echo $message['message'] ?> </p>
-<a href="#" class="btn-content">Read More</a>
+<a class="btn-content" href="<?php echo $config['App_Url'] ?>message.php?id=<?php echo $message['id']; ?>" >Read More</a>
 </div>
 
 </div>

@@ -248,6 +248,11 @@
 	 .content{
 		 border-top:1px solid #ccc;
 		 padding:1rem;
+		 display:flex;
+		 align-items:center;
+		 justify-content:space-between;
+		 height:10vh;
+		 flex-wrap:warp;
 	 }
 	 .content p{
 		 font-size:2rem;
@@ -267,7 +272,85 @@
 		  cursor:pointer;
 	 }
 	 
+	 
+	 
+	 /* message page*/
+	 	  
+	#message {
+	  
+	  border-collapse: collapse;
+	  width: 100%;
+	}
+
+	#message td, #message th {
+	  border: 1px solid #ddd;
+	  padding: 8px;
+	}
+
+	#message tr:nth-child(even){background-color: #f2f2f2;}
+
+	#message tr:hover {background-color: #D1FAE5;}
+
+	#message th {
+	  padding-top: 12px;
+	  padding-bottom: 12px;
+	  text-align: left;
+	  background-color: #4CAF50;
+	  color: white;
+	}
+	
+	
+	
+	
+	/* show message*/
+	.main-show-message{
+		
+	}
+	.flex-message{
+		 display:grid;
+		 grid-template-columns:2fr 1fr;
+		  align-items: center;
+		  gap: 20px;
+		  align-items: center;
+	}
+	
+	.info-message {
+		background:#fff;
+		padding:20px 40px;
+		display:flex;
+		justify-content:center;
+		align-items:center;
+		flex-direction:column;
+		margin:1rem;
+		text-align:center;
+		height:100%;
+	}
+	
+	.info-message img {
+		width:70px;
+		height:70px;
+		border-radius:50%;
+		text-align:center;
+		margin-bottom:1rem;
+	}
+
+	.content-message{
+		background:#fff;
+		height:100%;
+		padding:20px 40px;
+		margin:1rem;
+	}
+	
+	.btn-danger{
+		background:red;
+		color:#fff;
+		border:none;
+		padding:10px 20px;
+		cursor:pointer;
+	}
+
+		  
 	  
 	  
-   
+	 
    
