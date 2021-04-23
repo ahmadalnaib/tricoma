@@ -1,5 +1,11 @@
 <!--config file--php-->
-<?php require_once('config/app.php') ?>
+<?php
+ //session
+session_start();
+
+//config file
+require_once('config/app.php') 
+?>
 
 <!--html-->
 <!DOCTYPE html>
@@ -15,4 +21,5 @@
 
 <!-- start container-->
 <div class="container">
-  
+  <?php isset($_SESSION['name'])? $name=$_SESSION['name'] :$name=""; ?>
+  <p>Hi <?php echo $name; ?> </p>

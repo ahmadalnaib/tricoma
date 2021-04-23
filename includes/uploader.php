@@ -78,6 +78,8 @@
 	  $username=filterString($_POST['username']);
 	  if(!$username){
 		  $usernameError="username is required!";
+	  }else{
+		  $_SESSION['name']=$username;
 	  }
 	  
 	  //validate email
@@ -115,6 +117,13 @@
 			$imageError=$uploadImage;
 		}
 		
+	 }
+	 
+	 //check the final errors
+	 if(!$usernameError && !$emailError && !$imageError && !$messageError){
+		 session_destroy();
+		 header('Location: index.php');
+		 
 	 }
 	 
  }

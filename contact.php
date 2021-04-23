@@ -9,13 +9,12 @@ $title= "Contact";
  
  
  
- 
  <!--Html contact-form -->
  <div class="contact-container">
  
   <!--img -->
  <div class="contact-img">
- <p class="lead">Start Writing In <br> Your Mind ! </p>
+ <p class="lead">Start Writing In <br> Gäestbuch ! </p>
  <img  src="img/tools-bg.webp">
  </div>
  
@@ -24,7 +23,7 @@ $title= "Contact";
  
 
  <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" id="form" class="form" enctype="multipart/form-data">
- <h2>Schreib uns </h2>
+
  <div class="form-control">
  <label for="username">Username</label>
  <input type="text" name="username" value="<?php echo $username; ?>" id="username" placeholder="Enter username">
