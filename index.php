@@ -3,16 +3,13 @@
 $title= "Home";
 //header file
   require_once('template/header.php');
+  //config file
+  require_once('config/app.php');
+  //db file
+  require_once('config/db.php');
  
  
 
- 
- //connect to sql
- $mysqli=new mysqli('localhost','root','','tricoma');
- 
- if($mysqli->connect_error){
-	 die("Error connecting to database" . $mysqli->connect_error);
- }
  
  ?>
  
@@ -34,13 +31,41 @@ $title= "Home";
  
 </section>
 
+   <div class="last"> 
+ 
+  <h3>See what others are saying </h3>
+   </div>
+  
+
+
 <!-- post showcase section -->
+<?php $messages= $mysqli->query("select * from message order by created_at desc")->fetch_all(MYSQLI_ASSOC)?>
+
+<?php foreach($messages as $message): ?>
+
 <section class="post-showcase">
 <div class="post-content">
 
+<div class="img-post">
+ <img src="<?php echo $config['App_Url'].$message['image'] ?>">
+ <div class="img-content">
+    <h2 class="username"><?php echo $message['username'] ?><h2>
+	<p><?php echo $message['email'] ?></p>
+	<span><?php echo $message['created_at'] ?></span>
+ </div>
 </div>
 
+<div class="content">
+<p><?php echo $message['message'] ?> </p>
+<a href="#" class="btn-content">Read More</a>
+</div>
+
+</div>
+
+
 </section>
+
+<?php endforeach; ?>
 
 </main>
 

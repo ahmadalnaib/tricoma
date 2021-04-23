@@ -1,4 +1,8 @@
 <?php
+//db file
+  require_once('config/db.php');
+  
+  
 //filters inputs
  
  //filter string
@@ -121,6 +125,13 @@
 	 
 	 //check the final errors
 	 if(!$usernameError && !$emailError && !$imageError && !$messageError){
+		 
+		 $insertMessage="insert into message (username,email,image,message)
+		                 values('$username','$email','$uploadDir/$fileName','$message')";
+						 
+		 $mysqli->query($insertMessage);		 
+		 
+		 
 		 session_destroy();
 		 header('Location: index.php');
 		 
