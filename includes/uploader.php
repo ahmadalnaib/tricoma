@@ -2,6 +2,7 @@
 //db file
   require_once('config/db.php');
   
+  $uploadDir='uploads';
   
 //filters inputs
  
@@ -62,10 +63,10 @@
  
  
  //errors message var
- $usernameError=$emailError=$imageError=$messageError='';
+ $usernameError=$emailError=$imageError=$titleError=$bodyError='';
  
  //show old value when the user have error
- $username=$email=$message='';
+ $username=$email=$title=$body='';
  
  
  
@@ -82,8 +83,6 @@
 	  $username=filterString($_POST['username']);
 	  if(!$username){
 		  $usernameError="username is required!";
-	  }else{
-		  $_SESSION['name']=$username;
 	  }
 	  
 	  //validate email
@@ -92,10 +91,16 @@
 		  $emailError="email is invalid!";
 	  }
 	  
+	    //validate title
+	  $title=filterString($_POST['title']);
+	  if(!$title){
+		  $titleError="title is required!";
+	  }
+	  
 	  //validate message
-	  $message=filterString($_POST['message']);
-	  if(!$message){
-		  $messageError="message is required!";
+	  $body=filterString($_POST['body']);
+	  if(!$body){
+		  $bodyError="message is required!";
 	  }
 	  
 	 
@@ -108,7 +113,7 @@
 		
 		if($uploadImage === true){
 			//check the folder
-			$uploadDir='uploads';
+			//$uploadDir='uploads';
 			if(!is_dir($uploadDir)){
 				mkdir($uploadDir);
 			}
@@ -124,13 +129,29 @@
 	 }
 	 
 	 //check the final errors
-	 if(!$usernameError && !$emailError && !$imageError && !$messageError){
+	 if(!$usernameError && !$emailError && !$imageError && !$titleError && !$bodyError){
 		 
-		 $insertMessage="insert into message (username,email,image,message)
-		                 values('$username','$email','$uploadDir/$fileName','$message')";
+		 $fileName=$uploadDir.'/'.$fileName ;
+		 
+		 
+		/* $insertMessage="insert into message (username,email,image,title,body)
+		                 values('$username','$email','$fileName','$title','$body')";
 						 
-		 $mysqli->query($insertMessage);		 
+		 $mysqli->query($insertMessage);	 */
 		 
+		 
+		 $sql='INSERT INTO message(username,email,image,title,body)
+		       VALUES(:username,:email,:image,:title,:body)';
+		 $stmt=$pdo->prepare($sql);
+		 $stmt->execute([
+		 'username'=>username,
+		 'email'=>email,
+		 'image'=>$fileName,
+		 'title'=>title,
+		 'body'=>body
+		 ]);
+		 
+			   
 		 
 		 session_destroy();
 		 header('Location: index.php');

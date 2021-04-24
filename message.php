@@ -8,20 +8,32 @@ $title= "Message";
   //db file
   require_once('config/db.php');
  
-//get id for message
-$id=mysqli_real_escape_string($mysqli,$_GET['id']);
 
  
  ?>
  
 <div class="main-show-message">
 
-<?php $message= $mysqli->query("select * from message where id =".$id)->fetch_assoc()?>
+	<?php 
+	
+	 //$message= $mysqli->query("select * from message where id =".$id)->fetch_assoc()?>
+	<?php
+	//get id for message
+	$id=htmlspecialchars($_GET['id']);
+	
+	$sql='SELECT * FROM message WHERE id= :id';
+	$stmt=$pdo->prepare($sql);
+	$stmt->execute(['id'=>$id]);
+	$message=$stmt->fetch();
+	
+	
+	?>
+	
 
 <div class="flex-message">
 
 <div class="content-message">
-<p><?php echo $message['message'] ?> </p>
+<p><?php echo $message['body'] ?> </p>
 
 </div>
 

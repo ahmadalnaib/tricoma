@@ -4,6 +4,10 @@ $title= "Contact";
  require_once('template/header.php');  
  //uploder file
   require_once('includes/uploader.php');  
+  
+  
+  $id=1;
+  
     
  
  ?>

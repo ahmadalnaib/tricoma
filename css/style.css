@@ -347,7 +347,27 @@
 		border:none;
 		padding:10px 20px;
 		cursor:pointer;
+		display:inline-block;
+		margin:1rem;
+	     
 	}
+	
+	.btn-edit{
+		background:#A5B4FC;
+		color:#fff;
+		border:none;
+		padding:10px 20px;
+		cursor:pointer;
+		display:inline-block;
+		margin:1rem;
+	}
+	
+	
+	.img{
+		height:70px;
+		width:70px;
+	}
+
 
 		  
 	  

@@ -39,7 +39,14 @@ $title= "Home";
 
 
 <!-- post showcase section -->
-<?php $messages= $mysqli->query("select * from message order by created_at desc")->fetch_all(MYSQLI_ASSOC)?>
+   
+  <!--$messages= $mysqli->query("select * from message order by created_at desc")->fetch_all(MYSQLI_ASSOC)-->
+  <?php
+  $sql="select * from message order by created_at desc";
+  $stmt=$pdo->prepare($sql);
+  $stmt->execute();
+  $messages=$stmt->fetchAll();
+  ?>
 
 <?php foreach($messages as $message): ?>
 
@@ -47,7 +54,7 @@ $title= "Home";
 <div class="post-content">
 
 <div class="img-post">
- <img src="<?php echo $config['App_Url'].$message['image'] ?>">
+ <img class="img" src="<?php echo $config['App_Url'].$message['image'] ?>">
  <div class="img-content">
     <h2 class="username"><?php echo $message['username'] ?><h2>
 	<p><?php echo $message['email'] ?></p>
@@ -56,7 +63,7 @@ $title= "Home";
 </div>
 
 <div class="content">
-<p><?php echo $message['message'] ?> </p>
+<p><?php echo $message['title'] ?> </p>
 <a class="btn-content" href="<?php echo $config['App_Url'] ?>message.php?id=<?php echo $message['id']; ?>" >Read More</a>
 </div>
 

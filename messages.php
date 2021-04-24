@@ -9,14 +9,23 @@ $title= "Messages";
   
   //check for submit delete;
   if(isset($_POST['delete'])){
-	  $mysqli->query("delete from message where id =".$_POST['delete_id']);
+	  $id=htmlentities($_POST['delete_id']);
+	  $sql="delete from message where id =:id";
+	  $stmt=$pdo->prepare($sql);
+	  $stmt->execute(['id'=>$id]);
+	  
 	   header("Location: messages.php");
 	   die();
 	  
   }
   
-  $messages=$mysqli->query("select * from message order by id")
-                    ->fetch_all(MYSQLI_ASSOC);
+ 
+  $sql="select * from message order by created_at desc";
+  $stmt=$pdo->prepare($sql);
+  $stmt->execute();
+  $messages=$stmt->fetchAll();
+
+
 
  ?>
  
@@ -42,14 +51,16 @@ $title= "Messages";
  <td> <?php echo $message['id']; ?></td>
  <td> <?php echo $message['username']; ?></td>
  <td> <?php echo $message['email']; ?></td>
- <td> <?php echo $message['image']; ?></td>
+ <td class="img"> <img src="<?php echo $config['App_Url'].$message['image'] ?>"></td>
  <td> <?php echo $message['message']; ?></td>
    <td>
      <form onsubmit="return confirm('Are you susr')" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
 	 <input type="hidden" name="delete_id" value="<?php echo $message['id'] ;?>">
 	  <input type="submit" name="delete" value="Delete" class="btn-danger">
 	 </form>
+	 <a class="btn-edit" href="<?php echo $config['App_Url'] ?>editmsg.php?id=<?php echo $message['id']; ?>">Edit</a>
 	</td>
+	
  </tr>
 
  <?php endforeach; ?>

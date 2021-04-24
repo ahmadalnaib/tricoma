@@ -1,6 +1,6 @@
  <?php
  
-  $conn=[
+ /* $conn=[
   "host"=>"localhost",
   "user"=>"root",
   "pass"=>"",
@@ -16,3 +16,19 @@
  if($mysqli->connect_error){
 	 die("Error connecting to database" . $mysqli->connect_error);
  }
+ 
+ */
+ 
+ $host="localhost";
+ $user="root";
+ $password="";
+ $dbname="tricoma";
+
+
+ //set Dsn;
+ 
+ $dsn='mysql:host='.$host .";dbname=".$dbname; 
+ 
+ //create a PDO instance
+ $pdo=new PDO($dsn,$user,$password);
+ 
