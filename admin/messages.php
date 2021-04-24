@@ -3,9 +3,9 @@ $title= "Messages";
 //header file
   require_once('template/header.php');
   //config file
-  require_once('config/app.php');
+  require_once('../config/app.php');
   //db file
-  require_once('config/db.php');
+  require_once('../config/db.php');
   
   //check for submit delete;
   if(isset($_POST['delete'])){
@@ -68,4 +68,4 @@ $title= "Messages";
  
  </table>
  </div>
- 
+ <?php require_once('template/footer.php');?>
