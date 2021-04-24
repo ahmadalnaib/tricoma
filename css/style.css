@@ -199,79 +199,60 @@
 	}
 	 
 	 
-	 /* post section index */
-	 
-	 
-	 .post-showcase{
-		 background:#fff;
-		 padding:2rem;
-		 margin-bottom:2rem;
-		 box-shadow:0 2px 10px rgba(0,0,0,0.3);
-	 }
-	 .img-post{
-		 display:flex;
-		  justify-content: flex-start;
-		 align-items:center;
-		
-		 
-	 }
-	 .img-post img {
-		 width:70px;
-		 height:70px;
-		 border-radius:50%;
-		 padding:1rem;
-	 }
-	 
-	 .img-content{
-		 padding:1rem;
-		 margin:1rem;
-	 }
-	 
-	  .username {
-		 padding-bottom:1rem;
-		 background:#4F46E5;
-		 color:#fff;
-		 padding:5px 10px;
-		 text-align:center;
-		 
-
-	 }
-	 .img-content p {
-		 padding-bottom:1rem;
-	 }
-	 
-	 .img-content span{
-		 color:#777;
-		 font-size:1rem;
-	 }
-	 
-	 .content{
-		 border-top:1px solid #ccc;
-		 padding:1rem;
-		 display:flex;
-		 align-items:center;
-		 justify-content:space-between;
-		 height:10vh;
-		 flex-wrap:warp;
-	 }
-	 .content p{
-		 font-size:2rem;
-		 text-align:justify;
-		 margin-top:1rem;
-		 
-	 }
-	 
-	  .content a{
-		  display: block;
-		  border: none;
-		  padding: 10px 20px;
-		  text-align: center;
-		  color: #fff;
-		  background: #FBBF24;
-		  margin-top: 2rem;
-		  cursor:pointer;
-	 }
-	 
+	/* showcase indexpage*/
+	  .container-showcase{
+		  max-width:1100px;
+		  margin:auto;
+		  overflow:auto;
+		  padding:0 2rem;
+	  }
+	   
+	   .card{
+		   display:grid;
+		   grid-template-columns:repeat(2,1fr);
+		   gap:2rem;
+		   margin:2rem;
+		   background:#fff;
+		   margin-bottom:2rem;
+		   align-items:center;
+		   
+	   }
+	   
+	   .card img {
+		   width:400px;
+		   
+	   }
+	   .card h3 {
+		   margin-bottom:2rem
+	   }
+	   
+	   .card >div {
+		   padding:2rem;
+	   }
+	   
+	   .card:nth-child(even) img {
+		   order:2;
+	   }
+	   
+	   .btn-show{
+		   display:inline-block;
+		   background:#000;
+		   color:#fff;
+		   padding:0.8rem 1.8rem;
+		   margin-top:2rem;
+		   cursor:pointer;
+	   }
+	   
+	   .btn-show:hover{
+		   opacity:0.8;
+	   }
+	   
+	   @media(max-width:700px)
+	   {
+		   .card{
+			   display:block;
+		   }
+	   }
 	 
 	 
 	 /* message page*/

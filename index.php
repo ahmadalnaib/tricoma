@@ -40,40 +40,21 @@ $title= "Home";
 
 <!-- post showcase section -->
    
-  <!--$messages= $mysqli->query("select * from message order by created_at desc")->fetch_all(MYSQLI_ASSOC)-->
-  <?php
-  $sql="select * from message order by created_at desc";
-  $stmt=$pdo->prepare($sql);
-  $stmt->execute();
-  $messages=$stmt->fetchAll();
-  ?>
-
+  <?php $messages= $mysqli->query("select * from message order by created_at desc")->fetch_all(MYSQLI_ASSOC)?>
+  
+<div class="container-showcase">
 <?php foreach($messages as $message): ?>
-
-<section class="post-showcase">
-<div class="post-content">
-
-<div class="img-post">
- <img class="img" src="<?php echo $config['App_Url'].$message['image'] ?>">
- <div class="img-content">
-    <h2 class="username"><?php echo $message['username'] ?><h2>
-	<p><?php echo $message['email'] ?></p>
-	<span><?php echo $message['created_at'] ?></span>
- </div>
+<section class="card" data-aos="fade-down">
+<img src="<?php echo $config['App_Url'].$message['image'] ?>">
+<div>
+<h3><?php echo $message['username'] ?></h3>
+<p><?php echo $message['body'] ?></p>
+<a class="btn-show" href="<?php echo $config['App_Url'] ?>message.php?id=<?php echo $message['id']; ?>">Open</a>
 </div>
-
-<div class="content">
-<p><?php echo $message['title'] ?> </p>
-<a class="btn-content" href="<?php echo $config['App_Url'] ?>message.php?id=<?php echo $message['id']; ?>" >Read More</a>
-</div>
-
-</div>
-
-
 </section>
-
 <?php endforeach; ?>
 
+</div>
 </main>
 
 

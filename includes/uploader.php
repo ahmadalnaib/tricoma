@@ -134,22 +134,13 @@
 		 $fileName=$uploadDir.'/'.$fileName ;
 		 
 		 
-		/* $insertMessage="insert into message (username,email,image,title,body)
+		 $insertMessage="insert into message (username,email,image,title,body)
 		                 values('$username','$email','$fileName','$title','$body')";
 						 
-		 $mysqli->query($insertMessage);	 */
+		 $mysqli->query($insertMessage);	 
 		 
 		 
-		 $sql='INSERT INTO message(username,email,image,title,body)
-		       VALUES(:username,:email,:image,:title,:body)';
-		 $stmt=$pdo->prepare($sql);
-		 $stmt->execute([
-		 'username'=>username,
-		 'email'=>email,
-		 'image'=>$fileName,
-		 'title'=>title,
-		 'body'=>body
-		 ]);
+		
 		 
 			   
 		 

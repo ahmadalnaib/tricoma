@@ -1,6 +1,6 @@
  <?php
  
- /* $conn=[
+  $conn=[
   "host"=>"localhost",
   "user"=>"root",
   "pass"=>"",
@@ -17,7 +17,7 @@
 	 die("Error connecting to database" . $mysqli->connect_error);
  }
  
- */
+ 
  
  $host="localhost";
  $user="root";

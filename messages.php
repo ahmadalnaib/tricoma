@@ -52,7 +52,7 @@ $title= "Messages";
  <td> <?php echo $message['username']; ?></td>
  <td> <?php echo $message['email']; ?></td>
  <td class="img"> <img src="<?php echo $config['App_Url'].$message['image'] ?>"></td>
- <td> <?php echo $message['message']; ?></td>
+ <td> <?php echo $message['body']; ?></td>
    <td>
      <form onsubmit="return confirm('Are you susr')" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
 	 <input type="hidden" name="delete_id" value="<?php echo $message['id'] ;?>">
